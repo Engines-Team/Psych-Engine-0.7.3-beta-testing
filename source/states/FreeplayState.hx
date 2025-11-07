@@ -287,8 +287,13 @@ class FreeplayState extends MusicBeatState
 				changeDiff(1);
 				_updateSongLastDifficulty();
 			}
+			
+		if (FlxG.keys.justPressed.TAB || touchPad.buttonZ.justPressed) {
+				persistentUpdate = false;
+				FlxG.switchState(() -> new online.states.SkinsState());
+			}
 		}
-
+		else 
 		if (controls.BACK)
 		{
 			if (player.playingMusic)
