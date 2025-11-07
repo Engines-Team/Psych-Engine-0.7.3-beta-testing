@@ -290,7 +290,7 @@ class FreeplayState extends MusicBeatState
 			
 		if (FlxG.keys.justPressed.TAB || touchPad.buttonZ.justPressed) {
 				persistentUpdate = false;
-				FlxG.switchState(() -> new states.SkinsState());
+				MusicBeatState.switchState(() -> new states.SkinsState());
 			}
 		}
 		else 
