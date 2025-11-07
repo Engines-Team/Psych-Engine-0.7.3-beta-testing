@@ -9,7 +9,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.*;
 import flixel.ui.FlxButton;
 import flixel.util.FlxDestroyUtil;
-import states.SkinsState
+import states.SkinsState;
 
 import openfl.net.FileReference;
 import openfl.events.Event;
