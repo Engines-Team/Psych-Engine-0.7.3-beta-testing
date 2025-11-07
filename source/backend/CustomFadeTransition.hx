@@ -3,8 +3,10 @@ package backend;
 import flixel.util.FlxGradient;
 import flixel.FlxSubState;
 
+
 class CustomFadeTransition extends FlxSubState {
 	public static var finishCallback:Void->Void;
+	public static var nextCamera:FlxCamera;
 	var isTransIn:Bool = false;
 	var transBlack:FlxSprite;
 	var transGradient:FlxSprite;
