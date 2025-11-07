@@ -23,7 +23,7 @@ permissions: write-all
 
 env:
   HAXE_VERSION: 4.3.7
-  PROJECT_NAME: PsychEngine
+  PROJECT_NAME: EPsych
 
 jobs:
   build:
@@ -46,7 +46,7 @@ jobs:
           key: cache-build-ios
           path: |
             .haxelib/
-            export/release/ios/PsychEngine/haxe/
+            export/release/ios/EPsych/haxe/
           restore-keys: |
             cache-build-ios
 
@@ -142,12 +142,12 @@ jobs:
         if: inputs.name == 'iOS'
         run: |
           brew install ldid
-          cd export/release/ios/build/Release-iphoneos/PsychEngine.app
-          ldid -S../../../PsychEngine/PsychEngine.entitlements PsychEngine
+          cd export/release/ios/build/Release-iphoneos/EPsych.app
+          ldid -S../../../EPsych/EPsych.entitlements EPsych
           cd ..
           mkdir Payload
-          mv PsychEngine.app Payload
-          zip -r PsychEngine.ipa Payload
+          mv EPsych.app Payload
+          zip -r EPsych.ipa Payload
 
       - name: Upload Artifact
         uses: actions/upload-artifact@main
@@ -163,6 +163,6 @@ jobs:
           key: cache-build-ios
           path: |
             .haxelib/
-            export/release/ios/PsychEngine/haxe/
+            export/release/ios/EPsych/haxe/
           restore-keys: |
             cache-build-ios
