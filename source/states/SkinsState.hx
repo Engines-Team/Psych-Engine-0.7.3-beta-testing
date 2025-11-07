@@ -43,15 +43,15 @@ class SkinsState extends MusicBeatState {
 	public function new() {
 		super();
 
-		if (FlxG.state is SkinsState) {
+		if  (MusicBeatState.state is SkinsState) {
 			reloadedState = true;
 			return;
 		}
 
-		if (FlxG.state is CharacterEditorState)
+		if (MusicBeatState.state is CharacterEditorState)
 			return;
 
-		backClass = Type.getClass(FlxG.state);
+		backClass = Type.getClass(MusicBeatState.state);
 	}
 
 	var blackRectangle:FlxSprite;
@@ -154,7 +154,7 @@ class SkinsState extends MusicBeatState {
 		stageObjects = [bg];
 
 		if (!ClientPrefs.data.lowQuality) {
-			var stageBg = new FlxSprite(0, -220).loadGraphic(Paths.image('charSelect/charSelectBG'));
+			var stageBg = new FlxSprite(0, -220).loadGraphic(Paths.image('menuMAGENTA'));
 			stageBg.setGraphicSize(Std.int(stageBg.width * 1.1));
 			stageBg.updateHitbox();
 			stageBg.antialiasing = ClientPrefs.data.antialiasing;
@@ -162,59 +162,7 @@ class SkinsState extends MusicBeatState {
 			stageBg.scrollFactor.set(0.5, 0.5);
 			add(stageBg);
 
-			stageCrowd = new FlxAnimate(0, 240);
-			Paths.loadAnimateAtlas(stageCrowd, 'charSelect/crowd');
-			stageCrowd.antialiasing = ClientPrefs.data.antialiasing;
-			stageCrowd.anim.addBySymbol('beat', 'crowd', 24, true);
-			stageCrowd.anim.play('beat');
-			stageCrowd.scrollFactor.set(0.7, 0.7);
-			add(stageCrowd);
-
-			var stage = new FlxSprite(0, 390);
-			stage.antialiasing = ClientPrefs.data.antialiasing;
-			stage.frames = Paths.getSparrowAtlas('charSelect/charSelectStage');
-			stage.animation.addByPrefix('idle', "stage full instance 1", 24);
-			stage.animation.play('idle');
-			stage.updateHitbox();
-			stage.screenCenter(X);
-			stage.scrollFactor.set(0.9, 0.9);
-			add(stage);
-
-			var swageLight1 = new FlxSprite(200, 280).loadGraphic(Paths.image('charSelect/charLight'));
-			swageLight1.antialiasing = ClientPrefs.data.antialiasing;
-			swageLight1.scrollFactor.set(0.75, 0.75);
-			add(swageLight1);
-
-			var swageLight2 = new FlxSprite(700, 280).loadGraphic(Paths.image('charSelect/charLight'));
-			swageLight2.antialiasing = ClientPrefs.data.antialiasing;
-			swageLight2.scrollFactor.set(0.75, 0.75);
-			add(swageLight2);
-
-			var stageCurtain = new FlxSprite(0, 0).loadGraphic(Paths.image('charSelect/curtains'));
-			stageCurtain.setGraphicSize(Std.int(stageCurtain.width * 1.05));
-			stageCurtain.updateHitbox();
-			stageCurtain.antialiasing = ClientPrefs.data.antialiasing;
-			stageCurtain.screenCenter(XY);
-			stageCurtain.scrollFactor.set(0.95, 0.1);
-			add(stageCurtain);
-
-			stageSpeakers = new FlxAnimate(-80, 440);
-			Paths.loadAnimateAtlas(stageSpeakers, 'charSelect/charSelectSpeakers');
-			stageSpeakers.antialiasing = ClientPrefs.data.antialiasing;
-			stageSpeakers.anim.addBySymbol('beat', 'Speakers ALL', 24, true);
-			stageSpeakers.anim.play('beat');
-			stageSpeakers.scrollFactor.set(0.95, 0.95);
-			add(stageSpeakers);
-
-			defaultGirlfriend = new FlxAnimate(-80, 440);
-			Paths.loadAnimateAtlas(defaultGirlfriend, 'charSelect/gfChill');
-			defaultGirlfriend.antialiasing = ClientPrefs.data.antialiasing;
-			defaultGirlfriend.anim.addBySymbol('beat', 'GIRLFRIEND CS', 24, true);
-			defaultGirlfriend.anim.play('beat');
-			defaultGirlfriend.scrollFactor.set(0.95, 0.95);
-			add(defaultGirlfriend);
-
-			stageObjects = [stageBg, stageCrowd, stage, swageLight1, swageLight2, stageCurtain, stageSpeakers];
+			stageObjects = [stageBg];
 		}
 
         var i = 0;
@@ -355,19 +303,12 @@ class SkinsState extends MusicBeatState {
 		swagText.cameras = [hud];
 		add(swagText);
 
-		var tip1 = new FlxText(20, 0, FlxG.width, 'TAB - Flip skin\n8 - Edit skin\nCTRL - Open the Character List');
+		var tip1 = new FlxText(20, 0, FlxG.width, 'TAB / Z- Flip skin\n8 - Edit skin\nCTRL - Open the Character List');
 		tip1.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		tip1.y = charSelect.y - 10;
 		tip1.alpha = 0.5;
 		tip1.cameras = [hud];
-		add(tip1);
-
-		var tip2 = new FlxText(-20, 0, FlxG.width, 'F1 for Help!\nF2 to Browse Verified Skins');
-		tip2.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		tip2.y = tip1.y;
-		tip2.alpha = tip1.alpha;
-		tip2.cameras = [hud];
-		add(tip2);
+		add(tip1)
 
 		tweenColor(FlxColor.fromHSL(180, 1, 0.5));
 		if (colorTweens != null) {
@@ -529,10 +470,6 @@ class SkinsState extends MusicBeatState {
 			LoadingState.loadAndSwitchState(new SkinsState());
 		}
 
-		if (FlxG.keys.justPressed.F1) {
-			RequestSubstate.requestURL("https://github.com/Snirozu/Funkin-Psych-Online/wiki#skins", true);
-		}
-
 		if (FlxG.keys.justPressed.F2) {
 			switchState(() -> new DownloaderState('collection:110039'));
 		}
@@ -558,15 +495,11 @@ class SkinsState extends MusicBeatState {
 		characterCamera.follow(camFollow, LOCKON, 0.01);
 
 		if (GameClient.isConnected()) {
-			if (ClientPrefs.data.modSkin != null && ClientPrefs.data.modSkin.length >= 2) {
+			if (ClientPrefs.data.modSkin.length >= 2) {
 				GameClient.send("setSkin", [
 					ClientPrefs.data.modSkin[0],
 					ClientPrefs.data.modSkin[1],
-					OnlineMods.getModURL(ClientPrefs.data.modSkin[0])
 				]);
-			}
-			else {
-				GameClient.send("setSkin", null);
 			}
 		}
 
