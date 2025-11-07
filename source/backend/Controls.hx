@@ -81,6 +81,7 @@ class Controls
 	private function get_BACK() return justPressed('back');
 	private function get_PAUSE() return justPressed('pause');
 	private function get_RESET() return justPressed('reset');
+	private function get_TAUNT() return justPressed('taunt');
 
 
 	//Gamepad, Keyboard & Mobile stuff
