@@ -308,7 +308,7 @@ class SkinsState extends MusicBeatState {
 		tip1.y = charSelect.y - 10;
 		tip1.alpha = 0.5;
 		tip1.cameras = [hud];
-		add(tip1)
+		add(tip1);
 
 		tweenColor(FlxColor.fromHSL(180, 1, 0.5));
 		if (colorTweens != null) {
@@ -320,8 +320,6 @@ class SkinsState extends MusicBeatState {
 		super.create();
 		
 		CustomFadeTransition.nextCamera = hud; // wat
-
-		GameClient.send("status", "Selects their skin");
     }
 
     var acceptSound:FlxSound;
