@@ -5,7 +5,7 @@ permissions: write-all   # ✅ caller must allow write perms too
 
 env:
   PROJECT_NAME: EPsych
-  REPO_PATH: Ethantobot11/PsychEngine-0.7.3-beta-testing
+  REPO_PATH: Ethantobot11/Psych-Engine-0.7.3-beta-testing
 
 jobs:
   get-commit-hash:
