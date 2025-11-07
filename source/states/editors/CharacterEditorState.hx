@@ -9,6 +9,7 @@ import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.ui.*;
 import flixel.ui.FlxButton;
 import flixel.util.FlxDestroyUtil;
+import states.SkinsState
 
 import openfl.net.FileReference;
 import openfl.events.Event;
@@ -1108,7 +1109,10 @@ class CharacterEditorState extends MusicBeatState
 		else if(FlxG.keys.justPressed.ESCAPE || touchPad.buttonB.justPressed)
 		{
 			FlxG.mouse.visible = false;
-			if(!_goToPlayState)
+			if (goToSkins) {
+					MusicBeatState.switchState(() -> new SkinsState());
+			}
+			else if(!_goToPlayState)
 			{
 				MusicBeatState.switchState(new states.editors.MasterEditorMenu());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
