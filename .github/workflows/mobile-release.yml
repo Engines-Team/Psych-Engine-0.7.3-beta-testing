@@ -4,8 +4,8 @@ on: workflow_dispatch
 permissions: write-all   # ✅ caller must allow write perms too
 
 env:
-  PROJECT_NAME: PsychEngine
-  REPO_PATH: Ethantobot11/PsychEngine-0.7.3
+  PROJECT_NAME: EPsych
+  REPO_PATH: Ethantobot11/PsychEngine-0.7.3-beta-testing
 
 jobs:
   get-commit-hash:
@@ -81,7 +81,7 @@ jobs:
       - name: Publish The Release
         uses: softprops/action-gh-release@v2
         with:
-          name: "HOTIFX 0.71 (V${{ needs.get-gitversion-hash }})"
+          name: "beta (V0.1)"
           tag_name: "release-${{ needs.get-commit-hash.outputs.commit_hash }}"
           make_latest: true
           files: |
