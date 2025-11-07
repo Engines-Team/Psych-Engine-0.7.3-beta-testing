@@ -87,7 +87,7 @@ class SkinsState extends MusicBeatState {
 		WeekData.setDirectoryFromWeek();
 		
 		if (!reloadedState) {
-			for (v in [FlxG.sound.music, FreeplayState.vocals, FreeplayState.opponentVocals]) {
+			for (v in [FlxG.sound.music, FreeplayState.vocals]) {
 				if (v == null)
 					continue;
 
@@ -393,7 +393,6 @@ class SkinsState extends MusicBeatState {
 
 			var daCopy = charactersName.copy();
 			daCopy[0] = "Default";
-			openSubState(new online.substates.SoFunkinSubstate(daCopy, curCharacter, i -> {
 				if (selectTimer != null)
 					selectTimer.active = true;
 				setCharacter(i - curCharacter);
@@ -452,7 +451,6 @@ class SkinsState extends MusicBeatState {
 
 		if (controls.BACK || (!FlxG.keys.pressed.SHIFT && controls.ACCEPT)) {
 			stopUpdates = true;
-			FlxTimer.wait(1, () -> {
 				switchState(() -> Type.createInstance(backClass, []));
 			});
 		}
@@ -466,10 +464,6 @@ class SkinsState extends MusicBeatState {
 			flipped = !flipped;
 			skipStaticDestroy = true;
 			LoadingState.loadAndSwitchState(new SkinsState());
-		}
-
-		if (FlxG.keys.justPressed.F2) {
-			switchState(() -> new DownloaderState('collection:110039'));
 		}
 
 		if (character.members[0]?.animation?.curAnim != null) {
@@ -516,7 +510,7 @@ class SkinsState extends MusicBeatState {
 	}
 
 	function okNowYouCanSwitchTheState(switchFunction:flixel.util.typeLimit.NextState) {
-		for (v in [FlxG.sound.music, FreeplayState.vocals, FreeplayState.opponentVocals]) {
+		for (v in [FlxG.sound.music, FreeplayState.vocals]) {
 				if (v == null)
 					continue;
 
@@ -648,7 +642,6 @@ class SkinsState extends MusicBeatState {
 				catch (exc) {
 					staticSound.play(true);
 					staticMan.visible = true;
-					Alert.alert('Failed to load the skin!', 'exc: ' + exc);
 				}
 			});
 
