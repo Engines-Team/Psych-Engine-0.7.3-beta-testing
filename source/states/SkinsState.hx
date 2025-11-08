@@ -500,6 +500,7 @@ class SkinsState extends MusicBeatState {
 				]);
 			}
 		}
+	 }
 
 		FlxTween.tween(blackRectangle, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut});
 		blackRectangle.alpha = 0;
