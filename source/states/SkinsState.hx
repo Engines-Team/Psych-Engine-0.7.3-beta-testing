@@ -43,12 +43,12 @@ class SkinsState extends MusicBeatState {
 	public function new() {
 		super();
 
-		if  (MusicBeatState.state is SkinsState) {
+		if  (FlxG.state is SkinsState) {
 			reloadedState = true;
 			return;
 		}
 
-		if (MusicBeatState.state is CharacterEditorState)
+		if (FlxG.state is CharacterEditorState)
 			return;
 
 		backClass = Type.getClass(MusicBeatState.state);
