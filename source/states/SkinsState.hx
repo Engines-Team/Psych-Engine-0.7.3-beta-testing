@@ -410,6 +410,7 @@ class SkinsState extends MusicBeatState {
 				return null;
 			}));
 		}
+}
 
 		if (!FlxG.keys.pressed.SHIFT && controls.ACCEPT) {
 			if (selectTimer != null && !selectTimer.finished) {
