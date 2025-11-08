@@ -375,6 +375,20 @@ class Character extends FlxSprite
 		}
 		//else offset.set(0, 0);
 
+		if (AnimName == "taunt" || AnimName == "taunt-alt") {
+			specialAnim = true;
+			heyTimer = 1;
+		}
+
+		if (!animExists(AnimName)) {
+			if ((AnimName == "taunt" || AnimName == "taunt-alt") && !animExists(AnimName)) {
+				if (AnimName == "taunt-alt")
+					AnimName = "hey-alt";
+				else
+					AnimName = "hey";
+			}
+		}
+
 		if (curCharacter.startsWith('gf-') || curCharacter == 'gf')
 		{
 			if (AnimName == 'singLEFT')
