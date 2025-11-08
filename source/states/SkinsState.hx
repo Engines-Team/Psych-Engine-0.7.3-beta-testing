@@ -485,7 +485,6 @@ class SkinsState extends MusicBeatState {
 					camFollow.y += 20;
 			}
 		}
-    }
 
 	function switchState(switchFunction:flixel.util.typeLimit.NextState) {
 		stopUpdates = true;
