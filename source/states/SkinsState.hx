@@ -1,4 +1,4 @@
-package online.states;
+package states;
 
 import objects.HealthIcon;
 import flixel.FlxSubState;
@@ -493,7 +493,6 @@ class SkinsState extends MusicBeatState {
 		camera.follow(camFollow, LOCKON, 0.01);
 		characterCamera.follow(camFollow, LOCKON, 0.01);
 
-		if (GameClient.isConnected()) {
 			if (ClientPrefs.data.modSkin.length >= 2) {
 				GameClient.send("setSkin", [
 					ClientPrefs.data.modSkin[0],
