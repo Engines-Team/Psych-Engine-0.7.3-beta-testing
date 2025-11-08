@@ -45,6 +45,7 @@ class CharacterEditorState extends MusicBeatState
 	var copiedOffset:Array<Float> = [0, 0];
 	var _char:String = null;
 	var _goToPlayState:Bool = true;
+	var goToSkins:Bool = true;
 
 	var anims = null;
 	var animsTxtGroup:FlxTypedGroup<FlxText>;
