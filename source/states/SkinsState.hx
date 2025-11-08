@@ -320,6 +320,11 @@ class SkinsState extends MusicBeatState {
 		super.create();
 		
 		CustomFadeTransition.nextCamera = hud; // wat
+
+		#if mobile
+		addTouchPad('LEFT_FULL', 'A_B_C_D_V_X_Y_Z');
+		addTouchPadCamera();
+		#end
     }
 
     var acceptSound:FlxSound;
@@ -358,7 +363,7 @@ class SkinsState extends MusicBeatState {
 			Conductor.songPosition = music.time;
 		}
 
-        if (FlxG.keys.pressed.SHIFT) {
+        if (touchPad.buttonX.pressed || FlxG.keys.pressed.SHIFT) {
 			if (character.members[0] != null) {
 				if (controls.NOTE_UP) {
 					character.members[0].playAnim("singUP");
@@ -387,12 +392,13 @@ class SkinsState extends MusicBeatState {
 			}
         }
 
-		if (FlxG.keys.justPressed.CONTROL) {
+		if (touchPad.buttonV.pressed ||FlxG.keys.justPressed.CONTROL) {
 			if (selectTimer != null)
 				selectTimer.active = false;
 
 			var daCopy = charactersName.copy();
 			daCopy[0] = "Default";
+			openSubState(new substates.SoFunkinSubstate(daCopy, curCharacter, i -> {
 				if (selectTimer != null)
 					selectTimer.active = true;
 				setCharacter(i - curCharacter);
@@ -410,7 +416,7 @@ class SkinsState extends MusicBeatState {
 				return null;
 			}));
 	      }
-		}
+
 
 		if (!FlxG.keys.pressed.SHIFT && controls.ACCEPT) {
 			if (selectTimer != null && !selectTimer.finished) {
@@ -456,12 +462,12 @@ class SkinsState extends MusicBeatState {
 			});
 		}
 
-		if (FlxG.keys.justPressed.EIGHT) {
+		if (touchPad.buttonD.justPressed || FlxG.keys.justPressed.EIGHT) {
 			Mods.currentModDirectory = charactersMod.get(charactersName[curCharacter]);
 			switchState(() -> new CharacterEditorState(charactersName[curCharacter], false, true));
 		}
 
-		if (FlxG.keys.justPressed.TAB) {
+		if (touchPad.buttonC.justPressed || FlxG.keys.justPressed.TAB) {
 			flipped = !flipped;
 			skipStaticDestroy = true;
 			LoadingState.loadAndSwitchState(new SkinsState());
@@ -537,6 +543,12 @@ class SkinsState extends MusicBeatState {
 		persistentUpdate = true;
 
 		super.closeSubState();
+		#if mobile
+		if (touchPad != null)
+			removeTouchPad();
+		addTouchPad('LEFT_FULL', 'A_B_C_D_V_X_Y_Z');
+		addTouchPadCamera();
+		#end
 	}
 
 	override function destroy() {
