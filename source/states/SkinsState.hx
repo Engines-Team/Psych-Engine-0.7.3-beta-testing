@@ -494,7 +494,7 @@ class SkinsState extends MusicBeatState {
 
 			if (ClientPrefs.data.modSkin.length >= 2) {
 					ClientPrefs.data.modSkin[0],
-					ClientPrefs.data.modSkin[1],
+					ClientPrefs.data.modSkin[1]
 				]);
 			}
 
