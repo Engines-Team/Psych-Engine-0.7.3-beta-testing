@@ -502,10 +502,6 @@ class SkinsState extends MusicBeatState {
 		}
 	 }
 
-		FlxTween.tween(blackRectangle, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut});
-		blackRectangle.alpha = 0;
-		add(blackRectangle);
-
 		if (music.playing)
 			music.fadeOut(0.5, 0, t -> {
 				music.stop();
