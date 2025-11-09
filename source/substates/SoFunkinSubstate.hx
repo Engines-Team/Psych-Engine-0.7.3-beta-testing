@@ -11,7 +11,9 @@ class SoFunkinSubstate extends MusicBeatSubstate {
 	public var curGroup:Int = 0;
 	public var groups:Array<String> = [];
 	public var groupCallback:Int->Array<String>;
-
+	
+    var groupTitle:Scrollable;
+	
 	private var mapTexts:Map<String, FlxSprite> = new Map<String, FlxSprite>();
 	private var mapIcons:Map<String, FlxSprite> = new Map<String, FlxSprite>();
 
