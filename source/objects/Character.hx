@@ -401,6 +401,9 @@ class Character extends FlxSprite
 				danced = !danced;
 		}
 	}
+	public function animExists(AnimName:String) {
+		return animOffsets.exists(AnimName);
+	}
 
 	function loadMappedAnims():Void
 	{
