@@ -1111,7 +1111,7 @@ class CharacterEditorState extends MusicBeatState
 		{
 			FlxG.mouse.visible = false;
 			if (goToSkins) {
-					MusicBeatState.switchState(() -> new SkinsState());
+					MusicBeatState.switchState(new state.SkinsState());
 			}
 			else if(!_goToPlayState)
 			{
