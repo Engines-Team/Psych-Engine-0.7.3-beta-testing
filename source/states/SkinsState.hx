@@ -458,13 +458,13 @@ class SkinsState extends MusicBeatState {
 		if (controls.BACK || (!FlxG.keys.pressed.SHIFT && controls.ACCEPT)) {
 			stopUpdates = true;
 			FlxTimer.wait(1, () -> {
-				switchState(() -> Type.createInstance(backClass, []));
+				MusicBeatState.switchState(() -> Type.createInstance(backClass, []));
 			});
 		}
 
 		if (touchPad.buttonD.justPressed || FlxG.keys.justPressed.EIGHT) {
 			Mods.currentModDirectory = charactersMod.get(charactersName[curCharacter]);
-			switchState(() -> new CharacterEditorState(charactersName[curCharacter], false, true));
+			MusicBeatState.switchState(() -> new CharacterEditorState(charactersName[curCharacter], false, true));
 		}
 
 		if (touchPad.buttonC.justPressed || FlxG.keys.justPressed.TAB) {
@@ -521,7 +521,7 @@ class SkinsState extends MusicBeatState {
 			Conductor.bpmChangeMap = prevConBPMChanges;
 			Conductor.songPosition = prevConTime;
 
-			FlxG.switchState(switchFunction);
+			MusicBeatState.switchState(switchFunction);
 	}
 		}
 	override function openSubState(SubState:FlxSubState) {
