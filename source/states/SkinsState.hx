@@ -493,12 +493,10 @@ class SkinsState extends MusicBeatState {
 		characterCamera.follow(camFollow, LOCKON, 0.01);
 
 			if (ClientPrefs.data.modSkin.length >= 2) {
-				    var setSkin = new FlxText("setSkin", [
-					ClientPrefs.data.modSkin[0],
-					ClientPrefs.data.modSkin[1]
-			 ]);
-			}
-		 
+            var skinText:String = "Skins: " + ClientPrefs.data.modSkin[0] + ", " + ClientPrefs.data.modSkin[1];
+            var txt:FlxText = new FlxText(0, 0, 0, skinText, 16);
+            add(txt);
+            }
 
 		if (music.playing)
 			music.fadeOut(0.5, 0, t -> {
@@ -525,7 +523,6 @@ class SkinsState extends MusicBeatState {
 
 			FlxG.switchState(switchFunction);
 	}
-		}
 
 	override function openSubState(SubState:FlxSubState) {
 		SubState.cameras = [hud];
