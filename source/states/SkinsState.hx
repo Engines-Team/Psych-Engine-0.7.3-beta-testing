@@ -51,7 +51,7 @@ class SkinsState extends MusicBeatState {
 		if (FlxG.state is CharacterEditorState)
 			return;
 
-		backClass = Type.getClass(MusicBeatState.state);
+		backClass = Type.getClass(FlxG.state);
 	}
 
 	var blackRectangle:FlxSprite;
@@ -492,11 +492,16 @@ class SkinsState extends MusicBeatState {
 		camera.follow(camFollow, LOCKON, 0.01);
 		characterCamera.follow(camFollow, LOCKON, 0.01);
 
-			if (ClientPrefs.data.modSkin.length >= 2) {
-            var skinText:String = "Skins: " + ClientPrefs.data.modSkin[0] + ", " + ClientPrefs.data.modSkin[1];
-            var txt:FlxText = new FlxText(0, 0, 0, skinText, 16);
-            add(txt);
-            }
+			if (ClientPrefs.data.modSkin != null && ClientPrefs.data.modSkin.length >= 2)
+    {
+    var skin0:String = ClientPrefs.data.modSkin[0];
+    var skin1:String = ClientPrefs.data.modSkin[1];
+    var skinText:String = "Skins: " + skin0 + ", " + skin1;
+
+    var txt:FlxText = new FlxText(0, 0, 0, skinText, 16);
+    txt.setFormat(null, 16, FlxColor.WHITE, CENTER);
+    add(txt);
+}
 
 		if (music.playing)
 			music.fadeOut(0.5, 0, t -> {
