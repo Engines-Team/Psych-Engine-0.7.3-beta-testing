@@ -493,9 +493,10 @@ class SkinsState extends MusicBeatState {
 		characterCamera.follow(camFollow, LOCKON, 0.01);
 
 			if (ClientPrefs.data.modSkin.length >= 2) {
+				    FlxG.Text("setSkin", [
 					ClientPrefs.data.modSkin[0],
 					ClientPrefs.data.modSkin[1]
-			 }]);
+			 ]);
 			}
 
 		if (music.playing)
