@@ -42,6 +42,11 @@ class FreeplayState extends MusicBeatState
 	var missingTextBG:FlxSprite;
 	var missingText:FlxText;
 
+	var randomText:Scrollable;
+	var randomIcon:HealthIcon;
+
+	var groupTitle:Scrollable;
+
 	var bottomString:String;
 	var bottomText:FlxText;
 	var bottomBG:FlxSprite;
