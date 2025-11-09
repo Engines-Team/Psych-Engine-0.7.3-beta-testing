@@ -77,6 +77,7 @@ class Controls
 	public var BACK(get, never):Bool;
 	public var PAUSE(get, never):Bool;
 	public var RESET(get, never):Bool;
+	public var TAUNT(get, never):Bool;
 	private function get_ACCEPT() return justPressed('accept');
 	private function get_BACK() return justPressed('back');
 	private function get_PAUSE() return justPressed('pause');
