@@ -498,6 +498,7 @@ class SkinsState extends MusicBeatState {
 					ClientPrefs.data.modSkin[1]
 			 ]);
 			}
+		 
 
 		if (music.playing)
 			music.fadeOut(0.5, 0, t -> {
@@ -524,6 +525,7 @@ class SkinsState extends MusicBeatState {
 
 			FlxG.switchState(switchFunction);
 	}
+		}
 
 	override function openSubState(SubState:FlxSubState) {
 		SubState.cameras = [hud];
