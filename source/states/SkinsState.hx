@@ -523,7 +523,7 @@ class SkinsState extends MusicBeatState {
 
 			FlxG.switchState(switchFunction);
 	}
-
+		}
 	override function openSubState(SubState:FlxSubState) {
 		SubState.cameras = [hud];
 		persistentUpdate = false;
