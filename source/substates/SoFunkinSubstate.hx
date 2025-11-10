@@ -138,7 +138,7 @@ class SoFunkinSubstate extends MusicBeatSubstate {
 			if (!ClientPrefs.data.disableFreeplayAlphabet)
 				leText = new Alphabet(90, 320, options[i], true);
 			else
-				leText = new online.objects.AlphaLikeText(90, 320, options[i]);
+				leText = new objects.AlphaLikeText(90, 320, options[i]);
 			leText.isMenuItem = true;
 			leText.targetY = i - curSelected;
 			leText.ID = i;
