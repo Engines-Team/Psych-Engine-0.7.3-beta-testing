@@ -166,8 +166,8 @@ class SoFunkinSubstate extends MusicBeatSubstate {
 
 			if (groupTitle is Alphabet)
 				cast(groupTitle, Alphabet).text = "< " + textValue + " >";
-			else if (groupTitle is online.objects.AlphaLikeText)
-				cast(groupTitle, online.objects.AlphaLikeText).text = "< " + textValue + " >";
+			else if (groupTitle is objects.AlphaLikeText)
+				cast(groupTitle, objects.AlphaLikeText).text = "< " + textValue + " >";
 			groupTitle.scaleY = 0.7;
 			groupTitle.scaleX = 0.7;
 
