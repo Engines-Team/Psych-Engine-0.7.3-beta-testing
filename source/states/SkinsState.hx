@@ -458,7 +458,7 @@ class SkinsState extends MusicBeatState {
 		if (controls.BACK || (!FlxG.keys.pressed.SHIFT && controls.ACCEPT)) {
 			stopUpdates = true;
 			FlxTimer.wait(1, () -> {
-				MusicBeatState.switchState(() -> Type.createInstance(backClass, []));
+				switchState(() -> Type.createInstance(backClass, []));
 			});
 		}
 
